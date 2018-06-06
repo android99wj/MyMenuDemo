@@ -16,8 +16,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    //添加 因 butterknife报错
+    defaultConfig{
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath = true
+            }
+        }
+    }
 }
-
+//AndroidResideMenu添加
+repositories {
+    mavenCentral()
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
@@ -25,4 +36,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //注解 ID
+    implementation 'com.jakewharton:butterknife:5.1.1'
+    //添加 因annotations报错
+    androidTestCompile('com.android.support:support-annotations:25.4.0') {
+        force = true
+    }
+
+    compile 'com.specyci:residemenu:1.6+'
 }
