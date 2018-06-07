@@ -18,6 +18,9 @@ import com.special.ResideMenu.ResideMenuItem;
  * Created by Hannah on 2018/6/6.
  */
 
+/**
+ * 项目地址：https://github.com/SpecialCyCi/AndroidResideMenu
+ */
 public class AndroidResideMenuActivity extends AppCompatActivity implements View.OnClickListener {
 
   @InjectView(R.id.main_titlebar_left_tv)

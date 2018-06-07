@@ -17,6 +17,7 @@
       </intent-filter>
     </activity>
     <activity android:name=".AndroidResideMenuActivity"/>
+    <activity android:name=".LDrawerActivity"/>
   </application>
 
 </manifest>
