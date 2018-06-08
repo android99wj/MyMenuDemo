@@ -1,5 +1,6 @@
 package com.wj.menu;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ import com.special.ResideMenu.ResideMenuItem;
 /**
  * 项目地址：https://github.com/SpecialCyCi/AndroidResideMenu
  */
-public class AndroidResideMenuActivity extends AppCompatActivity implements View.OnClickListener {
+public class AndroidResideMenuActivity extends Activity implements View.OnClickListener {
 
   @InjectView(R.id.main_titlebar_left_tv)
   TextView mainTitlebarLeftTv;

@@ -47,4 +47,6 @@ dependencies {
   compile 'com.specyci:residemenu:1.6+'
   //ldrawer
   compile 'com.ikimuhendis:ldrawer:0.1'
+  //floatingactionbutton
+  compile 'com.getbase:floatingactionbutton:1.9.0'
 }

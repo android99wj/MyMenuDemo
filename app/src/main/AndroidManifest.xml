@@ -18,6 +18,8 @@
     </activity>
     <activity android:name=".AndroidResideMenuActivity"/>
     <activity android:name=".LDrawerActivity"/>
+    <activity android:name=".FloatingActionButtonActivity"/>
+    <activity android:name=".TestListViewActivity"/>
   </application>
 
 </manifest>
