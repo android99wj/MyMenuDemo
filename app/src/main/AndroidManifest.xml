@@ -17,7 +17,9 @@
       </intent-filter>
     </activity>
     <activity android:name=".AndroidResideMenuActivity"/>
-    <activity android:name=".LDrawerActivity"/>
+    <activity
+        android:name=".LDrawerActivity"
+        android:theme="@style/AppTheme1"/>
     <activity android:name=".FloatingActionButtonActivity"/>
     <activity android:name=".TestListViewActivity"/>
   </application>

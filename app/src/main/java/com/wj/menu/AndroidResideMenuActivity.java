@@ -2,10 +2,8 @@ package com.wj.menu;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -24,9 +22,10 @@ import com.special.ResideMenu.ResideMenuItem;
  */
 public class AndroidResideMenuActivity extends Activity implements View.OnClickListener {
 
-  @InjectView(R.id.main_titlebar_left_tv)
-  TextView mainTitlebarLeftTv;
-
+  @InjectView(R.id.toolbar_left)
+  TextView toolbarLeft;
+  @InjectView(R.id.toolbar_right)
+  TextView toolbarRight;
   private Context    context;
   private ResideMenu menu;
 
@@ -70,7 +69,7 @@ public class AndroidResideMenuActivity extends Activity implements View.OnClickL
 
       }
     });
-    mainTitlebarLeftTv.setOnClickListener(new View.OnClickListener() {
+    toolbarLeft.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         menu.openMenu(ResideMenu.DIRECTION_LEFT);
