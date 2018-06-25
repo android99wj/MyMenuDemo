@@ -24,6 +24,18 @@ android {
       }
     }
   }
+
+  //多渠道打包---传统方式
+    productFlavors {
+      xiaomi {
+      }
+      baidu {
+      }
+      tencent {
+      }
+    }
+    productFlavors.all { flavor -> flavor.manifestPlaceholders = [MY_CHANNEL: name] }
+
 }
 //AndroidResideMenu添加
 repositories {
