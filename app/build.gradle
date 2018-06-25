@@ -51,6 +51,35 @@ android {
 //    tencent {}
 //  }
 //  productFlavors.all { flavor -> flavor.manifestPlaceholders = [MY_CHANNEL: name] }
+
+
+  //打包重命名方式---一般使用这个
+  //      applicationVariants.all { variant ->
+  //        variant.outputs.each { output ->
+  //          def outputFile = output.outputFile
+  //          if (outputFile != null && outputFile.name.endsWith('.apk')) {
+  //            def fileName = outputFile.name.replace(outputFile.name,
+  //                "我的命名" + "_V${defaultConfig.versionName}_C${defaultConfig.versionCode}_${getDate()}.apk")
+  //            output.outputFile = new File(outputFile.parent, fileName)
+  //          }
+  //        }
+
+  //打包重命名方式---plugin 3.0影响时使用这个
+  applicationVariants.all { variant ->
+    variant.outputs.all {
+      def fileName = "我的命名" + "_V${defaultConfig.versionName}_C${defaultConfig.versionCode}_${getDate()}_" +
+          variant.name +
+          ".apk"
+      outputFileName = fileName
+    }
+  }
+}
+
+//定义方法 获取时间
+def getDate() {
+  Date date = new Date()
+  def formatDateString = date.format("yyyyMMdd")
+  return formatDateString
 }
 
 //AndroidResideMenu添加
