@@ -10,9 +10,9 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
 
-    <meta-data
-        android:name="CHANNEL"
-        android:value="${MY_CHANNEL}"/>
+    <!--<meta-data-->
+        <!--android:name="CHANNEL"-->
+        <!--android:value="${MY_CHANNEL}"/>-->
 
     <activity android:name=".MainActivity">
       <intent-filter>

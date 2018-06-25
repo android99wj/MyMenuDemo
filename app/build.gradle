@@ -1,6 +1,18 @@
 apply plugin: 'com.android.application'
+//引用walle打包的gradle文件
+apply from: 'multi_channel.gradle'
 
 android {
+  //配置签名文件
+  signingConfigs {
+    config {
+      keyAlias 'android'
+      keyPassword '123456'
+      storeFile file('C:/projects_my_git/MyMenuDemo/app/keystore/my_app.jks')
+      storePassword '123456'
+      v2SigningEnabled true
+    }
+  }
   compileSdkVersion 26
   defaultConfig {
     applicationId "com.wj.menu"
@@ -14,6 +26,13 @@ android {
     release {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      //设置签名文件配置
+      signingConfig signingConfigs.config
+    }
+    debug {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      signingConfig signingConfigs.config
     }
   }
   //添加 因 butterknife报错
@@ -26,23 +45,20 @@ android {
   }
 
   //多渠道打包---传统方式
-    productFlavors {
-      xiaomi {
-      }
-      baidu {
-      }
-      tencent {
-      }
-    }
-    productFlavors.all { flavor -> flavor.manifestPlaceholders = [MY_CHANNEL: name] }
-
+//  productFlavors {
+//    xiaomi {}
+//    baidu {}
+//    tencent {}
+//  }
+//  productFlavors.all { flavor -> flavor.manifestPlaceholders = [MY_CHANNEL: name] }
 }
+
 //AndroidResideMenu添加
 repositories {
   mavenCentral()
 }
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation 'com.android.support:appcompat-v7:26.1.0'
   implementation 'com.android.support.constraint:constraint-layout:1.1.0'
   testImplementation 'junit:junit:4.12'
@@ -54,11 +70,13 @@ dependencies {
   androidTestCompile('com.android.support:support-annotations:25.4.0') {
     force = true
   }
-
   //android reside menu
   compile 'com.specyci:residemenu:1.6+'
   //ldrawer
   compile 'com.ikimuhendis:ldrawer:0.1'
   //floatingactionbutton
   compile 'com.getbase:floatingactionbutton:1.9.0'
+  //mutil channel
+  // 多渠道打包
+  compile 'com.meituan.android.walle:library:1.1.6'
 }
